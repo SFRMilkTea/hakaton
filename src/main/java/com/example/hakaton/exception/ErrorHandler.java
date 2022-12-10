@@ -45,4 +45,9 @@ public class ErrorHandler {
         return ResponseEntity.badRequest().body(e.getMessage());
     }
 
+    @ExceptionHandler
+    public ResponseEntity handleValidationError(final TrashCanAlreadyExistException e) {
+        return ResponseEntity.badRequest().body(e.getMessage());
+    }
+
 }

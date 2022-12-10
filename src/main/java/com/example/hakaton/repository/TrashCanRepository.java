@@ -5,5 +5,5 @@ import com.example.hakaton.entity.UserEntity;
 import org.springframework.data.repository.CrudRepository;
 
 public interface TrashCanRepository extends CrudRepository<TrashCanEntity, Long> {
-
+    TrashCanEntity findByAddress(String address);
 }

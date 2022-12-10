@@ -15,7 +15,7 @@ public class BonusesController {
         this.bonusesService = bonusesService;
     }
 
-    @GetMapping("/add/{id}")
+    @GetMapping("/add/{userId}")
     public ResponseEntity addBonuses(@PathVariable Long userId,
                                      @RequestParam int bonuses,
                                      @RequestParam Long trashCanId) {
@@ -27,11 +27,11 @@ public class BonusesController {
         }
     }
 
-    @GetMapping("/use/{id}")
-    public ResponseEntity useBonuses(@PathVariable Long id,
+    @GetMapping("/use/{userId}")
+    public ResponseEntity useBonuses(@PathVariable Long userId,
                                      @RequestParam int bonuses) {
         try {
-            bonusesService.useBonuses(bonuses, id);
+            bonusesService.useBonuses(bonuses, userId);
             return ResponseEntity.ok().build();
         } catch (Exception e) {
             throw new RuntimeException(e);
