@@ -36,8 +36,7 @@ public class AuthController {
     public ResponseEntity authorization(@RequestParam String email,
                                         @RequestParam String password) {
         try {
-            authService.checkEmail(email, password);
-            return ResponseEntity.ok().build();
+            return ResponseEntity.ok(authService.checkEmail(email, password));
         } catch (Exception e) {
             throw new RuntimeException(e);
         }

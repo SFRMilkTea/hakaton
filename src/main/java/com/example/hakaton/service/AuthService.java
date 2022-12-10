@@ -27,12 +27,12 @@ public class AuthService {
         checkPassword(email, password);
     }
 
-    public void checkEmail(String email, String password) throws UserNotFoundException, WrongPasswordException {
+    public Long checkEmail(String email, String password) throws UserNotFoundException, WrongPasswordException {
         UserEntity user = userRepository.findByEmail(email);
         if (user == null) {
             throw new UserNotFoundException("Пользователь с email " + email + " не существует");
         }
-        checkPassword(email, password);
+        return checkPassword(email, password);
     }
 
     public Long checkPassword(String email, String password) throws WrongPasswordException {
