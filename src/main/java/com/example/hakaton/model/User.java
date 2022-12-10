@@ -1,31 +1,32 @@
-package com.example.hakaton.entity;
+package com.example.hakaton.model;
 
+import com.example.hakaton.entity.UserEntity;
 
-import javax.persistence.*;
-import java.time.LocalDateTime;
-import java.util.Date;
+public class User {
 
-@Entity
-public class UserEntity {
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    @Column(nullable = false)
     private String email;
-    @Column(nullable = false)
     private String lastName;
-    @Column(nullable = false)
     private String firstName;
     private String patronymic;
-    @Column(nullable = false)
     private String address;
     private String pictureUrl;
     private int bonuses;
-    private boolean isAdmin;
-    @Column(nullable = false)
-    private String password;
 
-    public UserEntity() {
+    public static User toModel(UserEntity entity) {
+        User model = new User();
+        model.setId(entity.getId());
+        model.setEmail(entity.getEmail());
+        model.setFirstName(entity.getFirstName());
+        model.setLastName(entity.getLastName());
+        model.setPatronymic(entity.getPatronymic());
+        model.setAddress(entity.getAddress());
+        model.setPictureUrl(entity.getPictureUrl());
+        model.setBonuses(entity.getBonuses());
+        return model;
+    }
+
+    public User() {
     }
 
     public Long getId() {
@@ -90,21 +91,5 @@ public class UserEntity {
 
     public void setBonuses(int bonuses) {
         this.bonuses = bonuses;
-    }
-
-    public boolean isAdmin() {
-        return isAdmin;
-    }
-
-    public void setAdmin(boolean admin) {
-        isAdmin = admin;
-    }
-
-    public String getPassword() {
-        return password;
-    }
-
-    public void setPassword(String password) {
-        this.password = password;
     }
 }
