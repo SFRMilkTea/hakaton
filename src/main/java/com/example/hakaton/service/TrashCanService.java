@@ -55,4 +55,15 @@ public class TrashCanService {
             throw new TrashCanAlreadyExistException("Мусорный бак по адресу " + trashCanEntity.getAddress() + " уже существует");
     }
 
+    public List<TrashCanEntity> findByString(String str) {
+        Iterable<TrashCanEntity> trashCansEntities = trashCanRepository.findAll();
+        ArrayList<TrashCanEntity> trashCans = new ArrayList<>();
+        for (TrashCanEntity trashCan : trashCansEntities) {
+            if (trashCan.getAddress().toLowerCase().contains(str.toLowerCase())) {
+                trashCans.add(trashCan);
+            }
+        }
+        return trashCans;
+    }
+
 }

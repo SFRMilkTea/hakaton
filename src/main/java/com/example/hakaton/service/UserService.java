@@ -66,7 +66,8 @@ public class UserService {
         Iterable<UserEntity> users = userRepository.findAll();
         ArrayList<User> usersModel = new ArrayList<>();
         for (UserEntity user : users) {
-            if (user.getFirstName().toLowerCase().contains(str.toLowerCase())) {
+            if (user.getFirstName().toLowerCase().contains(str.toLowerCase())
+                    || user.getLastName().toLowerCase().contains(str.toLowerCase())) {
                 usersModel.add(User.toModel(user));
             }
         }

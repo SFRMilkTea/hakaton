@@ -49,4 +49,13 @@ public class TrashCanController {
         }
     }
 
+    @GetMapping("/search")
+    public ResponseEntity findTrashCans(@RequestParam String filter) {
+        try {
+            return ResponseEntity.ok(trashCanService.findByString(filter));
+        } catch (Exception e) {
+            throw new RuntimeException(e);
+        }
+    }
+
 }

@@ -3,7 +3,6 @@ package com.example.hakaton.service;
 import com.example.hakaton.entity.TrashCanStoryEntity;
 import com.example.hakaton.entity.UserStoryEntity;
 import com.example.hakaton.repository.TrashCanStoryRepository;
-import com.example.hakaton.repository.UserRepository;
 import com.example.hakaton.repository.UserStoryRepository;
 import org.springframework.stereotype.Service;
 

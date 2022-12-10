@@ -4,6 +4,9 @@ import com.example.hakaton.entity.UserEntity;
 import com.example.hakaton.service.BonusesService;
 import com.example.hakaton.service.StoryService;
 import com.example.hakaton.service.UserService;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Pageable;
+import org.springframework.data.domain.Sort;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -122,6 +125,15 @@ public class UserController {
     public ResponseEntity getUserStory(@PathVariable Long id) {
         try {
             return ResponseEntity.ok(storyService.getUserStory(id));
+        } catch (Exception e) {
+            throw new RuntimeException(e);
+        }
+    }
+
+    @GetMapping("/search")
+    public ResponseEntity findUsers(@RequestParam String filter) {
+        try {
+            return ResponseEntity.ok(userService.findByString(filter));
         } catch (Exception e) {
             throw new RuntimeException(e);
         }
