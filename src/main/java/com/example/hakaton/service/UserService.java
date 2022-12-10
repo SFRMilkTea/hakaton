@@ -1,10 +1,12 @@
 package com.example.hakaton.service;
 
 import com.example.hakaton.entity.UserEntity;
+import com.example.hakaton.entity.UserStoryEntity;
 import com.example.hakaton.exception.UserAlreadyExistException;
 import com.example.hakaton.exception.UserNotFoundException;
 import com.example.hakaton.model.User;
 import com.example.hakaton.repository.UserRepository;
+import com.example.hakaton.repository.UserStoryRepository;
 import org.springframework.dao.EmptyResultDataAccessException;
 import org.springframework.stereotype.Service;
 
@@ -15,9 +17,11 @@ import java.util.List;
 public class UserService {
 
     private final UserRepository userRepository;
+    private final UserStoryRepository userStoryRepository;
 
-    public UserService(UserRepository userRepository) {
+    public UserService(UserRepository userRepository, UserStoryRepository userStoryRepository) {
         this.userRepository = userRepository;
+        this.userStoryRepository = userStoryRepository;
     }
 
     public User getUser(Long id) throws UserNotFoundException {
@@ -67,5 +71,9 @@ public class UserService {
             }
         }
         return usersModel;
+    }
+
+    public List<UserStoryEntity> getHistory(Long id) {
+        return userStoryRepository.findAllByUserId(id);
     }
 }

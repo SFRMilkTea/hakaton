@@ -49,6 +49,7 @@ public class UserController {
             throw new RuntimeException(e);
         }
     }
+
     /**
      * @api {get} /users/[id] Получение пользователя по айди
      * @apiName getOneUser
@@ -116,24 +117,13 @@ public class UserController {
         }
     }
 
-    @GetMapping("/bonuses/add/{id}")
-    public ResponseEntity addBonuses(@PathVariable Long id,
-                                     @RequestParam int bonuses) {
+    @GetMapping("/history/{id}")
+    public ResponseEntity getUserHistory(@PathVariable Long id) {
         try {
-            bonusesService.addBonuses(bonuses, id);
-            return ResponseEntity.ok().build();
+            return ResponseEntity.ok(userService.getHistory(id));
         } catch (Exception e) {
             throw new RuntimeException(e);
         }
     }
 
-    @GetMapping("/bonuses/use/{id}")
-    public ResponseEntity useBonuses(@PathVariable Long id) {
-        try {
-            bonusesService.useBonuses(id);
-            return ResponseEntity.ok().build();
-        } catch (Exception e) {
-            throw new RuntimeException(e);
-        }
-    }
 }

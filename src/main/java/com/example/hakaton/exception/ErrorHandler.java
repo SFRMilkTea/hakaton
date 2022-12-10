@@ -35,4 +35,9 @@ public class ErrorHandler {
         return ResponseEntity.badRequest().body(e.getMessage());
     }
 
+    @ExceptionHandler
+    public ResponseEntity handleValidationError(final NotEnoughBonusesException e) {
+        return ResponseEntity.badRequest().body(e.getMessage());
+    }
+
 }
