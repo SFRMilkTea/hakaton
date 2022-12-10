@@ -35,12 +35,11 @@ public class AuthService {
         checkPassword(email, password);
     }
 
-    public void checkPassword(String email, String password) throws WrongPasswordException {
-
+    public Long checkPassword(String email, String password) throws WrongPasswordException {
         UserEntity user = userRepository.findByEmail(email);
         if (!user.getPassword().equals(password))
             throw new WrongPasswordException("Неверный пароль");
-
+        return user.getId();
     }
 }
 
