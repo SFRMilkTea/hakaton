@@ -38,7 +38,7 @@ public class AuthService {
     public void checkPassword(String email, String password) throws WrongPasswordException {
 
         UserEntity user = userRepository.findByEmail(email);
-        if (user.getPassword() != password)
+        if (!user.getPassword().equals(password))
             throw new WrongPasswordException("Неверный пароль");
 
     }
