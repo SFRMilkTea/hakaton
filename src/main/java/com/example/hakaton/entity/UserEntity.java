@@ -19,6 +19,7 @@ public class UserEntity {
     private String patronymic;
     @Column(nullable = false)
     private String address;
+    @Column(length = 10240)
     private String pictureUrl;
     private int bonuses;
     private boolean isAdmin;
