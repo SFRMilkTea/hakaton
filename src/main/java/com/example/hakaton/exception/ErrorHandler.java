@@ -10,70 +10,10 @@ import org.springframework.web.bind.annotation.RestControllerAdvice;
 @RestControllerAdvice()
 public class ErrorHandler {
 
-//    @ExceptionHandler
-//    public ResponseEntity handleValidationError(final AccessTokenIsNotValidException e) {
-//        return ResponseEntity.status(401).body(e.getMessage());
-//    }
-//
-//    @ExceptionHandler
-//    public ResponseEntity handleValidationError(final ProductAlreadyExistException e) {
-//        return ResponseEntity.badRequest().body(e.getMessage());
-//    }
-//
-//    @ExceptionHandler
-//    public ResponseEntity handleValidationError(final ProductAlreadyOrderedException e) {
-//        return ResponseEntity.badRequest().body(e.getMessage());
-//    }
-//
-//    @ExceptionHandler
-//    public ResponseEntity handleValidationError(final ProductCategoryAlreadyExistException e) {
-//        return ResponseEntity.badRequest().body(e.getMessage());
-//    }
-//
-//    @ExceptionHandler
-//    public ResponseEntity handleValidationError(final ProductCategoryNotFoundException e) {
-//        return ResponseEntity.badRequest().body(e.getMessage());
-//    }
-//
-//    @ExceptionHandler
-//    public ResponseEntity handleValidationError(final ProductNotFoundException e) {
-//        return ResponseEntity.badRequest().body(e.getMessage());
-//    }
-//
-//    @ExceptionHandler
-//    public ResponseEntity handleValidationError(final ProductNotOrderedException e) {
-//        return ResponseEntity.badRequest().body(e.getMessage());
-//    }
-//
-//    @ExceptionHandler
-//    public ResponseEntity handleValidationError(final QuestionAlreadyExistException e) {
-//        return ResponseEntity.badRequest().body(e.getMessage());
-//    }
-//
-//    @ExceptionHandler
-//    public ResponseEntity handleValidationError(final QuestionCategoryAlreadyExistException e) {
-//        return ResponseEntity.badRequest().body(e.getMessage());
-//    }
-//
-//    @ExceptionHandler
-//    public ResponseEntity handleValidationError(final QuestionCategoryNotFoundException e) {
-//        return ResponseEntity.badRequest().body(e.getMessage());
-//    }
-//
-//    @ExceptionHandler
-//    public ResponseEntity handleValidationError(final QuestionNotFoundException e) {
-//        return ResponseEntity.badRequest().body(e.getMessage());
-//    }
-//
-//    @ExceptionHandler
-//    public ResponseEntity handleValidationError(final RefreshTokenIsNotValidException e) {
-//        return ResponseEntity.badRequest().body(e.getMessage());
-//    }
-//
-//    @ExceptionHandler
-//    public ResponseEntity handleValidationError(final UserAlreadyExistException e) {
-//        return ResponseEntity.badRequest().body(e.getMessage());
-//    }
+    @ExceptionHandler
+    public ResponseEntity handleValidationError(final UserAlreadyExistException e) {
+        return ResponseEntity.badRequest().body(e.getMessage());
+    }
 
     @ExceptionHandler
     public ResponseEntity handleValidationError(final UserNotAdminException e) {
