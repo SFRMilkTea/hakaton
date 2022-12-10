@@ -1,6 +1,7 @@
 package com.example.hakaton.controller;
 
 import com.example.hakaton.entity.UserEntity;
+import com.example.hakaton.service.BonusesService;
 import com.example.hakaton.service.UserService;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -15,9 +16,11 @@ public class UserController {
      */
 
     private final UserService userService;
+    private final BonusesService bonusesService;
 
-    public UserController(UserService userService) {
+    public UserController(UserService userService, BonusesService bonusesService) {
         this.userService = userService;
+        this.bonusesService = bonusesService;
     }
 
 
@@ -107,6 +110,27 @@ public class UserController {
     public ResponseEntity deleteUser(@PathVariable Long id) {
         try {
             userService.delete(id);
+            return ResponseEntity.ok().build();
+        } catch (Exception e) {
+            throw new RuntimeException(e);
+        }
+    }
+
+    @GetMapping("/bonuses/add/{id}")
+    public ResponseEntity addBonuses(@PathVariable Long id,
+                                     @RequestParam int bonuses) {
+        try {
+            bonusesService.addBonuses(bonuses, id);
+            return ResponseEntity.ok().build();
+        } catch (Exception e) {
+            throw new RuntimeException(e);
+        }
+    }
+
+    @GetMapping("/bonuses/use/{id}")
+    public ResponseEntity useBonuses(@PathVariable Long id) {
+        try {
+            bonusesService.useBonuses(id);
             return ResponseEntity.ok().build();
         } catch (Exception e) {
             throw new RuntimeException(e);
