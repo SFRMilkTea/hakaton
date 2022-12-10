@@ -2,6 +2,7 @@ package com.example.hakaton.controller;
 
 import com.example.hakaton.entity.UserEntity;
 import com.example.hakaton.service.BonusesService;
+import com.example.hakaton.service.StoryService;
 import com.example.hakaton.service.UserService;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -16,11 +17,11 @@ public class UserController {
      */
 
     private final UserService userService;
-    private final BonusesService bonusesService;
+    private final StoryService storyService;
 
-    public UserController(UserService userService, BonusesService bonusesService) {
+    public UserController(UserService userService, StoryService storyService) {
         this.userService = userService;
-        this.bonusesService = bonusesService;
+        this.storyService = storyService;
     }
 
 
@@ -117,10 +118,10 @@ public class UserController {
         }
     }
 
-    @GetMapping("/history/{id}")
-    public ResponseEntity getUserHistory(@PathVariable Long id) {
+    @GetMapping("/story/{id}")
+    public ResponseEntity getUserStory(@PathVariable Long id) {
         try {
-            return ResponseEntity.ok(userService.getHistory(id));
+            return ResponseEntity.ok(storyService.getUserStory(id));
         } catch (Exception e) {
             throw new RuntimeException(e);
         }

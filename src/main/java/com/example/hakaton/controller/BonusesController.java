@@ -16,10 +16,11 @@ public class BonusesController {
     }
 
     @GetMapping("/add/{id}")
-    public ResponseEntity addBonuses(@PathVariable Long id,
-                                     @RequestParam int bonuses) {
+    public ResponseEntity addBonuses(@PathVariable Long userId,
+                                     @RequestParam int bonuses,
+                                     @RequestParam Long trashCanId) {
         try {
-            bonusesService.addBonuses(bonuses, id);
+            bonusesService.addBonuses(bonuses, userId, trashCanId);
             return ResponseEntity.ok().build();
         } catch (Exception e) {
             throw new RuntimeException(e);

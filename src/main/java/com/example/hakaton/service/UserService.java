@@ -73,7 +73,4 @@ public class UserService {
         return usersModel;
     }
 
-    public List<UserStoryEntity> getHistory(Long id) {
-        return userStoryRepository.findAllByUserId(id);
-    }
 }

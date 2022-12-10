@@ -40,4 +40,9 @@ public class ErrorHandler {
         return ResponseEntity.badRequest().body(e.getMessage());
     }
 
+    @ExceptionHandler
+    public ResponseEntity handleValidationError(final TrashCanNotFoundException e) {
+        return ResponseEntity.badRequest().body(e.getMessage());
+    }
+
 }
