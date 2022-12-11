@@ -8,6 +8,7 @@ import com.example.hakaton.repository.TrashCanRepository;
 import org.springframework.dao.EmptyResultDataAccessException;
 import org.springframework.stereotype.Service;
 
+import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -15,9 +16,11 @@ import java.util.List;
 public class TrashCanService {
 
     private final TrashCanRepository trashCanRepository;
+    private final StoryService storyService;
 
-    public TrashCanService(TrashCanRepository trashCanRepository) {
+    public TrashCanService(TrashCanRepository trashCanRepository, StoryService storyService) {
         this.trashCanRepository = trashCanRepository;
+        this.storyService = storyService;
     }
 
     public TrashCanEntity getTrashCan(Long id) throws TrashCanNotFoundException {
@@ -69,5 +72,10 @@ public class TrashCanService {
         TrashCanEntity trashCanEntity = getTrashCan(id);
         trashCanEntity.setDisabled(disabled);
         trashCanRepository.save(trashCanEntity);
+        if (disabled) {
+            storyService.createTrashCanStory(id, "Администратор", LocalDateTime.now(), "Контейнер заблокирован");
+        } else {
+            storyService.createTrashCanStory(id, "Администратор", LocalDateTime.now(), "Контейнер разблокирован");
+        }
     }
 }
