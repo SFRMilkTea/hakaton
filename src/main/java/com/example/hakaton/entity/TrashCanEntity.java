@@ -15,8 +15,8 @@ public class TrashCanEntity {
     private int plasticFullness;
     @Column(nullable = false)
     private String address;
-    @Column(nullable = false)
     private boolean isDisabled;
+    private boolean isFull;
 
     public TrashCanEntity() {
     }
@@ -67,5 +67,13 @@ public class TrashCanEntity {
 
     public void setPlasticFullness(int plasticFullness) {
         this.plasticFullness = plasticFullness;
+    }
+
+    public boolean isFull() {
+        return isFull;
+    }
+
+    public void setFull(boolean full) {
+        isFull = full;
     }
 }
