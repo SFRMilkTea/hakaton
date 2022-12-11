@@ -7,11 +7,11 @@ public class TrashCanEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    @Column(nullable = false)
+//    @Column(nullable = false)
     private int paperFullness;
-    @Column(nullable = false)
+//    @Column(nullable = false)
     private int glassFullness;
-    @Column(nullable = false)
+//    @Column(nullable = false)
     private int plasticFullness;
     @Column(nullable = false)
     private String address;

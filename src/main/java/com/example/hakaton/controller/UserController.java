@@ -101,16 +101,6 @@ public class UserController {
         }
     }
 
-    /**
-     * @api {delete} /users/[id] Удаление пользователя по айди
-     * @apiName deleteUser
-     * @apiGroup USERS
-     * @apiParam {Number} id Уникальный идентефикатор пользователя
-     * @apiHeader {String} accessToken Аксес токен
-     * @apiError (Error 401) AccessTokenIsNotValidException Не валидный AccessToken
-     * @apiError (Error 400) UserNotFoundException Пользователь с таким id не существует
-     **/
-
     @DeleteMapping("/{id}")
     public ResponseEntity deleteUser(@PathVariable Long id) {
         try {

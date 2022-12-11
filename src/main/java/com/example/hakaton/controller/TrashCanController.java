@@ -75,4 +75,14 @@ public class TrashCanController {
             throw new RuntimeException(e);
         }
     }
+
+    @DeleteMapping("/{id}")
+    public ResponseEntity deleteTrashCan(@PathVariable Long id) {
+        try {
+            trashCanService.delete(id);
+            return ResponseEntity.ok().build();
+        } catch (Exception e) {
+            throw new RuntimeException(e);
+        }
+    }
 }
