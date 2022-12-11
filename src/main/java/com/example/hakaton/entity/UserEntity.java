@@ -1,12 +1,10 @@
 package com.example.hakaton.entity;
 
-
 import javax.persistence.*;
-import java.time.LocalDateTime;
-import java.util.Date;
 
 @Entity
 public class UserEntity {
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
@@ -19,8 +17,8 @@ public class UserEntity {
     private String patronymic;
     @Column(nullable = false)
     private String address;
-    @Column(columnDefinition="text")
-    private String pictureUrl;
+    @Column(length = 1024)
+    private String photoUrl;
     private int bonuses;
     private boolean isAdmin;
     @Column(nullable = false)
@@ -77,12 +75,12 @@ public class UserEntity {
         this.address = address;
     }
 
-    public String getPictureUrl() {
-        return pictureUrl;
+    public String getPhotoUrl() {
+        return photoUrl;
     }
 
-    public void setPictureUrl(String pictureUrl) {
-        this.pictureUrl = pictureUrl;
+    public void setPhotoUrl(String photoUrl) {
+        this.photoUrl = photoUrl;
     }
 
     public int getBonuses() {

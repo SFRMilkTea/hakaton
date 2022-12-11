@@ -58,4 +58,13 @@ public class TrashCanController {
         }
     }
 
+    @GetMapping("/{id}")
+    public ResponseEntity getOneTrashCan(@PathVariable Long id) {
+        try {
+            return ResponseEntity.ok(trashCanService.getTrashCan(id));
+        } catch (Exception e) {
+            throw new RuntimeException(e);
+        }
+    }
+
 }

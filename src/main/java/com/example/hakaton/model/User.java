@@ -10,7 +10,7 @@ public class User {
     private String firstName;
     private String patronymic;
     private String address;
-    private String pictureUrl;
+    private String photoUrl;
     private int bonuses;
 
     public static User toModel(UserEntity entity) {
@@ -21,7 +21,7 @@ public class User {
         model.setLastName(entity.getLastName());
         model.setPatronymic(entity.getPatronymic());
         model.setAddress(entity.getAddress());
-        model.setPictureUrl(entity.getPictureUrl());
+        model.setPhotoUrl(entity.getPhotoUrl());
         model.setBonuses(entity.getBonuses());
         return model;
     }
@@ -77,12 +77,12 @@ public class User {
         this.address = address;
     }
 
-    public String getPictureUrl() {
-        return pictureUrl;
+    public String getPhotoUrl() {
+        return photoUrl;
     }
 
-    public void setPictureUrl(String pictureUrl) {
-        this.pictureUrl = pictureUrl;
+    public void setPhotoUrl(String photoUrl) {
+        this.photoUrl = photoUrl;
     }
 
     public int getBonuses() {
