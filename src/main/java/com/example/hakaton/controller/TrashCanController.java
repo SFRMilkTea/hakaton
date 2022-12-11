@@ -2,10 +2,8 @@ package com.example.hakaton.controller;
 
 import com.example.hakaton.entity.TrashCanEntity;
 import com.example.hakaton.entity.UserEntity;
-import com.example.hakaton.service.BonusesService;
 import com.example.hakaton.service.StoryService;
 import com.example.hakaton.service.TrashCanService;
-import com.example.hakaton.service.UserService;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -67,4 +65,14 @@ public class TrashCanController {
         }
     }
 
+    @PutMapping("/{id}")
+    public ResponseEntity setDisabled(@PathVariable Long id,
+                                      @RequestParam boolean disabled) {
+        try {
+            trashCanService.setDisabled(id, disabled);
+            return ResponseEntity.ok().build();
+        } catch (Exception e) {
+            throw new RuntimeException(e);
+        }
+    }
 }

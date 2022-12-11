@@ -69,4 +69,9 @@ public class TrashCanService {
         return trashCans;
     }
 
+    public void setDisabled(Long id, boolean disabled) throws TrashCanNotFoundException {
+        TrashCanEntity trashCanEntity = getTrashCan(id);
+        trashCanEntity.setDisabled(disabled);
+        trashCanRepository.save(trashCanEntity);
+    }
 }
