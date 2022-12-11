@@ -65,9 +65,9 @@ public class TrashCanController {
         }
     }
 
-    @PutMapping("/{id}")
+    @GetMapping("/put/{id}")
     public ResponseEntity setDisabled(@PathVariable Long id,
-                                      @RequestBody boolean disabled) {
+                                      @RequestParam boolean disabled) {
         try {
             trashCanService.setDisabled(id, disabled);
             return ResponseEntity.ok().build();

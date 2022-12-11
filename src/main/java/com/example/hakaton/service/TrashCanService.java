@@ -4,11 +4,7 @@ import com.example.hakaton.entity.TrashCanEntity;
 import com.example.hakaton.entity.UserEntity;
 import com.example.hakaton.exception.TrashCanAlreadyExistException;
 import com.example.hakaton.exception.TrashCanNotFoundException;
-import com.example.hakaton.exception.UserAlreadyExistException;
-import com.example.hakaton.exception.UserNotFoundException;
-import com.example.hakaton.model.User;
 import com.example.hakaton.repository.TrashCanRepository;
-import com.example.hakaton.repository.TrashCanStoryRepository;
 import org.springframework.dao.EmptyResultDataAccessException;
 import org.springframework.stereotype.Service;
 

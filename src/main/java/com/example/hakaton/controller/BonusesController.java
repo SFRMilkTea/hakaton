@@ -9,11 +9,25 @@ import org.springframework.web.bind.annotation.*;
 @RequestMapping("/bonuses")
 public class BonusesController {
 
+    /**
+     * @apiDefine BONUSES
+     * БОНУСЫ
+     */
+
     private final BonusesService bonusesService;
 
     public BonusesController(UserService userService, BonusesService bonusesService) {
         this.bonusesService = bonusesService;
     }
+
+    /**
+     * @api {get} /bonuses/add/[id] Начислить бонусы
+     * @apiName addBonuses
+     * @apiGroup BONUSES
+     * @apiParam {Long} userId Id пользователя
+     * @apiParam {int} bonuses Количество начисляемых бонусов
+     * @apiParam {Long} trashCanId Id мусорки
+     **/
 
     @GetMapping("/add/{userId}")
     public ResponseEntity addBonuses(@PathVariable Long userId,
