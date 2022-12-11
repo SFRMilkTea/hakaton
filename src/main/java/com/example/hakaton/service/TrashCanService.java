@@ -50,6 +50,9 @@ public class TrashCanService {
 
     public void addTrashCan(TrashCanEntity trashCanEntity) throws TrashCanAlreadyExistException {
         if (trashCanRepository.findByAddress(trashCanEntity.getAddress()) == null) {
+            trashCanEntity.setGlassFullness((int) (Math.random() * 101));
+            trashCanEntity.setPaperFullness((int) (Math.random() * 101));
+            trashCanEntity.setPlasticFullness((int) (Math.random() * 101));
             trashCanRepository.save(trashCanEntity);
         } else
             throw new TrashCanAlreadyExistException("Мусорный бак по адресу " + trashCanEntity.getAddress() + " уже существует");

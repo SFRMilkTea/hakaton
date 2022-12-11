@@ -8,7 +8,11 @@ public class TrashCanEntity {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     @Column(nullable = false)
-    private boolean isFull;
+    private int paperFullness;
+    @Column(nullable = false)
+    private int glassFullness;
+    @Column(nullable = false)
+    private int plasticFullness;
     @Column(nullable = false)
     private String address;
     @Column(nullable = false)
@@ -25,14 +29,6 @@ public class TrashCanEntity {
         this.id = id;
     }
 
-    public boolean isFull() {
-        return isFull;
-    }
-
-    public void setFull(boolean full) {
-        isFull = full;
-    }
-
     public String getAddress() {
         return address;
     }
@@ -47,5 +43,29 @@ public class TrashCanEntity {
 
     public void setDisabled(boolean disabled) {
         isDisabled = disabled;
+    }
+
+    public int getPaperFullness() {
+        return paperFullness;
+    }
+
+    public void setPaperFullness(int paperFullness) {
+        this.paperFullness = paperFullness;
+    }
+
+    public int getGlassFullness() {
+        return glassFullness;
+    }
+
+    public void setGlassFullness(int glassFullness) {
+        this.glassFullness = glassFullness;
+    }
+
+    public int getPlasticFullness() {
+        return plasticFullness;
+    }
+
+    public void setPlasticFullness(int plasticFullness) {
+        this.plasticFullness = plasticFullness;
     }
 }
